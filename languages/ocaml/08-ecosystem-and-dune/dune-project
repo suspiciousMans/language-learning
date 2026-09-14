@@ -1,0 +1,8 @@
+(lang dune 3.0)
+(name ocaml_learning_project_08)
+(version 0.1.0)
+(package
+ (name ocaml_learning_project_08)
+ (depends
+  (ocaml (>= 4.14.0))
+  dune))

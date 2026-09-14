@@ -1,0 +1,8 @@
+(executable
+ (name toolchain_check)
+ (modules toolchain_check))
+
+(test
+ (name test_toolchain)
+ (modules test_toolchain)
+ (libraries alcotest))

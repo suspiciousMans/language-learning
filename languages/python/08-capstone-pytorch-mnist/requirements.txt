@@ -1,0 +1,12 @@
+# Pinned dependencies for the capstone project.
+#
+# The learner installs these themselves — PyTorch is large and
+# platform-specific. Install with:
+#
+#   pip install -r requirements.txt
+#
+# If CUDA is available, install the CUDA-enabled PyTorch instead:
+#   https://pytorch.org/get-started/locally/
+
+torch>=2.0
+torchvision>=0.15

@@ -1,0 +1,24 @@
+(executable
+ (name options)
+ (modules options))
+
+(executable
+ (name results)
+ (modules results))
+
+(executable
+ (name chaining)
+ (modules chaining))
+
+(executable
+ (name validation)
+ (modules validation))
+
+(executable
+ (name error_recovery)
+ (modules error_recovery))
+
+(test
+ (name tests_errors)
+ (modules tests_errors error_ops)
+ (libraries ounit2))

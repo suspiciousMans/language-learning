@@ -1,0 +1,24 @@
+(executable
+ (name variants)
+ (modules variants))
+
+(executable
+ (name records)
+ (modules records))
+
+(executable
+ (name tuples)
+ (modules tuples))
+
+(executable
+ (name exhaustive)
+ (modules exhaustive))
+
+(executable
+ (name domain_model)
+ (modules domain_model))
+
+(test
+ (name tests_adts)
+ (modules tests_adts adts_ops)
+ (libraries ounit2))

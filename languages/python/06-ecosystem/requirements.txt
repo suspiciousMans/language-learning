@@ -1,0 +1,6 @@
+# Example requirements.txt for the 06-ecosystem project.
+#
+# Install with: pip install -r requirements.txt
+#
+# requests — HTTP library for calling web APIs
+requests>=2.31

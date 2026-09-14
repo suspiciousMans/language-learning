@@ -1,0 +1,40 @@
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Language-specific — add per repo as needed
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Rust
+target/
+
+# Kotlin
+*.class
+.kt/
+
+# Go
+/bin/
+*.exe
+
+# C
+*.o
+*.out
+build/
+
+# OCaml
+*.cmi
+*.cmo
+*.cmx

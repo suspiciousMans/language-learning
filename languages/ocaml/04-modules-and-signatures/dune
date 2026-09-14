@@ -1,0 +1,20 @@
+(executable
+ (name queue_impl)
+ (modules queue_impl))
+
+(executable
+ (name stack)
+ (modules stack))
+
+(executable
+ (name container_functor)
+ (modules container_functor))
+
+(executable
+ (name set_functor)
+ (modules set_functor))
+
+(test
+ (name tests_modules)
+ (modules tests_modules module_ops)
+ (libraries ounit2))

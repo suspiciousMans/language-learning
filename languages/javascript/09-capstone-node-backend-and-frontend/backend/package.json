@@ -1,0 +1,14 @@
+{
+  "name": "capstone-todo-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Simple Todo API backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": ["todo", "api", "node"],
+  "author": "",
+  "license": "MIT"
+}

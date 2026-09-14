@@ -1,0 +1,10 @@
+# Example requirements.txt for the 03-modules-and-packages project.
+#
+# Use `pip install -r requirements.txt` to install these packages into
+# your virtual environment. The learner installs these as needed.
+#
+# requests — HTTP library for calling web APIs (used in project 06)
+requests>=2.31
+
+# pydantic — data validation using type hints (optional, for later projects)
+pydantic>=2.0

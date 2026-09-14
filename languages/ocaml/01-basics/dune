@@ -1,0 +1,28 @@
+(executable
+ (name let_bindings)
+ (modules let_bindings))
+
+(executable
+ (name functions)
+ (modules functions))
+
+(executable
+ (name pattern_matching)
+ (modules pattern_matching))
+
+(executable
+ (name if_then_else)
+ (modules if_then_else))
+
+(executable
+ (name lists)
+ (modules lists))
+
+(executable
+ (name recursion)
+ (modules recursion))
+
+(test
+ (name tests_basics)
+ (modules tests_basics ops)
+ (libraries ounit2))

@@ -1,0 +1,16 @@
+{
+  "name": "06-ecosystem-and-modules",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "run": "tsx src/format-date.ts",
+    "check": "tsc --noEmit src/format-date.ts"
+  },
+  "dependencies": {
+    "date-fns": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "tsx": "^4.0.0"
+  }
+}

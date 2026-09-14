@@ -1,0 +1,24 @@
+(executable
+ (name higher_order)
+ (modules higher_order))
+
+(executable
+ (name list_ops)
+ (modules list_ops))
+
+(executable
+ (name composition)
+ (modules composition))
+
+(executable
+ (name partial_application)
+ (modules partial_application))
+
+(executable
+ (name data_pipeline)
+ (modules data_pipeline))
+
+(test
+ (name tests_functional
+ (modules tests_functional functional_ops)
+ (libraries ounit2))

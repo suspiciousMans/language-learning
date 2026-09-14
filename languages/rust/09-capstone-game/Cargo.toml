@@ -1,0 +1,15 @@
+[package]
+name = "capstone-game"
+version = "0.1.0"
+edition = "2021"
+
+# Learner: add your chosen game library here.
+# macroquad example:
+# [dependencies]
+# macroquad = "0.4"
+#
+# bevy example:
+# [dependencies]
+# bevy = "0.13"
+
+[dependencies]

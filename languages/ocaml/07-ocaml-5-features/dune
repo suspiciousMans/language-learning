@@ -1,0 +1,19 @@
+(executable
+ (name simple_effect)
+ (modules simple_effect))
+
+(executable
+ (name logging_effect)
+ (modules logging_effect))
+
+(executable
+ (name async_simulation)
+ (modules async_simulation))
+
+(executable
+ (name search_with_effects)
+ (modules search_with_effects))
+
+(executable
+ (name resource_management)
+ (modules resource_management))

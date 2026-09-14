@@ -1,0 +1,21 @@
+(executable
+ (name math_functions)
+ (modules math_functions))
+
+(executable
+ (name list_functions)
+ (modules list_functions))
+
+(executable
+ (name property_tests)
+ (modules property_tests))
+
+(test
+ (name test_math)
+ (modules test_math math_functions)
+ (libraries ounit2))
+
+(test
+ (name test_list)
+ (modules test_list list_functions)
+ (libraries ounit2))

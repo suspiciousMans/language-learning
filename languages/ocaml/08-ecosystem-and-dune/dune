@@ -1,0 +1,11 @@
+(library
+ (name string_utils))
+
+(executable
+ (name cli_app)
+ (modules cli_app)
+ (libraries string_utils))
+
+(executable
+ (name json_handler)
+ (modules json_handler))
