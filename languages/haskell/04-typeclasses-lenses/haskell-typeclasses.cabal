@@ -1,0 +1,36 @@
+cabal-version:       3.0
+name:                haskell-typeclasses
+version:             0.1.0.0
+synopsis:            Typeclasses, Foldable, Traversable, and Lenses
+description:
+  Exercises for Haskell's typeclass system: Eq, Ord, Show, Enum, Bounded,
+  Num instances, Foldable and Traversable for custom types, and an
+  introduction to the lens library for composable data access.
+license:             NONE
+author:              Learner
+maintainer:          none@example.com
+build-type:          Simple
+
+executable typeclasses
+  main-is:           typeclasses.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable foldable
+  main-is:           foldable.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable lenses-intro
+  main-is:           lenses_intro.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable typeclass-constraints
+  main-is:           typeclass-constraints.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing

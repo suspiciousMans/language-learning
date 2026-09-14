@@ -1,0 +1,37 @@
+cabal-version:       3.0
+name:                haskell-adts
+version:             0.1.0.0
+synopsis:            Algebraic data types, pattern matching, Maybe, Either, trees
+description:
+  Exercises for Haskell's core type system: sum types, product types,
+  recursive types, Maybe for safe nulls, Either for error handling,
+  and binary tree data structures.
+license:             NONE
+author:              Learner
+maintainer:          none@example.com
+build-type:          Simple
+
+executable shapes
+  main-is:           shapes.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable maybe-exercises
+  main-is:           maybe_exercises.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+  build-depends:     base >= 4.14 && < 5, containers
+
+executable either-exercises
+  main-is:           either_exercises.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable trees
+  main-is:           trees.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing

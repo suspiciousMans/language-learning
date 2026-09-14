@@ -1,0 +1,36 @@
+cabal-version:       3.0
+name:                haskell-monads
+version:             0.1.0.0
+synopsis:            Lists, functors, applicatives, monads, monad transformers intro
+description:
+  Exercises for Haskell's core abstractions: list processing, functors,
+  applicatives, the Monad typeclass, do-notation, the State monad,
+  and an introduction to monad transformers.
+license:             NONE
+author:              Learner
+maintainer:          none@example.com
+build-type:          Simple
+
+executable lists
+  main-is:           lists.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable functors
+  main-is:           functors.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable monads
+  main-is:           monads.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable transformers-intro
+  main-is:           transformers_intro.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing

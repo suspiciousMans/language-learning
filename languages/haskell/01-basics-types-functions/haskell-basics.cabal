@@ -1,0 +1,35 @@
+cabal-version:       3.0
+name:                haskell-basics
+version:             0.1.0.0
+synopsis:            Haskell basics: types, functions, control flow
+description:
+  Exercises for learning Haskell fundamentals: pattern matching,
+  guards, recursion, custom data types, and record syntax.
+license:             NONE
+author:              Learner
+maintainer:          none@example.com
+build-type:          Simple
+
+executable basics
+  main-is:           basics.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable control-flow
+  main-is:           control_flow.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable functions
+  main-is:           functions.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing
+
+executable data-types
+  main-is:           data_types.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2021
+  ghc-options:       -Wall -Wno-name-shadowing

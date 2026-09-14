@@ -4,16 +4,40 @@ A collection of language learning paths — one for each language — designed t
 
 ## Languages
 
-| Language | Path | Projects | Capstone |
-|----------|------|----------|----------|
-| Python | `languages/python/` | 9 projects | PyTorch neural network |
-| TypeScript | `languages/typescript/` | 9 projects | Vite + React web app |
-| Rust | `languages/rust/` | 10 projects | 2D game engine |
-| Kotlin | `languages/kotlin/` | 9 projects | Ktor REST backend |
-| Go | `languages/go/` | 10 projects | CLI tool + HTTP dashboard |
-| C | `languages/c/` | 10 projects | CHIP-8 emulator |
-| OCaml | `languages/ocaml/` | 10 projects | Tiny compiler |
-| JavaScript | `languages/javascript/` | 10 projects | Node backend + vanilla frontend |
+### Compiled / Systems
+| Language | Path | Projects | Capstone | Typeclass |
+|----------|------|----------|----------|-----------|
+| **Rust** | `languages/rust/` | 10 | 2D game engine | N/A |
+| **C** | `languages/c/` | 10 | CHIP-8 emulator | N/A |
+| **OCaml** | `languages/ocaml/` | 10 | Tiny compiler | N/A |
+| **Zig** | `languages/zig/` | 8+ | Systems program / game | N/A |
+
+### JVM Languages
+| Language | Path | Projects | Capstone | Typeclass |
+|----------|------|----------|----------|-----------|
+| **Kotlin** | `languages/kotlin/` | 10 | Ktor REST backend | N/A |
+| **Java** | `languages/java/` | 8+ | Spring Boot REST API | N/A |
+
+### Web / Scripting / Dynamic
+| Language | Path | Projects | Capstone | Typeclass |
+|----------|------|----------|----------|-----------|
+| **Python** | `languages/python/` | 9 | PyTorch neural network | N/A |
+| **TypeScript** | `languages/typescript/` | 9 | Vite + React web app | N/A |
+| **JavaScript** | `languages/javascript/` | 10 | Node backend + vanilla frontend | N/A |
+| **Go** | `languages/go/` | 10 | CLI tool + HTTP dashboard | N/A |
+| **Ruby** | `languages/ruby/` | 8+ | Rails web application | N/A |
+| **Elixir** | `languages/elixir/` | 8+ | Phoenix web application | N/A |
+
+### Functional / Advanced
+| Language | Path | Projects | Capstone | Typeclass |
+|----------|------|----------|----------|-----------|
+| **Haskell** | `languages/haskell/` | 8+ | Web app with Servant or DSL | Typeclasses |
+| **Swift** | `languages/swift/` | 8+ | SwiftUI iOS app / Vapor server | N/A |
+
+### Enterprise / Managed
+| Language | Path | Projects | Capstone | Typeclass |
+|----------|------|----------|----------|-----------|
+| **C#** | `languages/csharp/` | 8+ | ASP.NET Core API / Unity game | N/A |
 
 ## How to Use
 
@@ -30,19 +54,21 @@ A collection of language learning paths — one for each language — designed t
 ```
 language-learning/
 ├── languages/
-│   ├── python/
-│   │   ├── 00-tooling-check/
-│   │   ├── 01-basics/
-│   │   ├── 02-data-structures/
-│   │   ├── ...
-│   │   └── 08-capstone-pytorch-mnist/
-│   ├── typescript/
 │   ├── rust/
-│   ├── kotlin/
-│   ├── go/
 │   ├── c/
 │   ├── ocaml/
-│   └── javascript/
+│   ├── zig/
+│   ├── kotlin/
+│   ├── java/
+│   ├── python/
+│   ├── typescript/
+│   ├── javascript/
+│   ├── go/
+│   ├── ruby/
+│   ├── elixir/
+│   ├── haskell/
+│   ├── swift/
+│   └── csharp/
 ├── README.md           # This file
 └── .gitignore
 ```
@@ -69,14 +95,30 @@ Every language starts with Project 00 — a quick checklist to verify your envir
 
 Each language ends with a capstone project that ties together everything you've learned:
 
-- **Python**: Build a neural network with PyTorch to classify MNIST digits
-- **TypeScript**: Build a Vite + React web application
+### Systems / Native
 - **Rust**: Build a 2D game engine with macroquad or bevy
-- **Kotlin**: Build a REST API backend with Ktor, database, and Docker
-- **Go**: Build a CLI tool + concurrent HTTP dashboard
 - **C**: Build a CHIP-8 emulator (retro game console)
 - **OCaml**: Build a tiny compiler with lexer, parser, and evaluator
+- **Zig**: Build a systems program — small game with SDL2 or CLI tool
+
+### JVM
+- **Kotlin**: Build a REST API backend with Ktor, database, and Docker
+- **Java**: Build a Spring Boot REST API with database, tests, and Docker
+
+### Web / Dynamic
+- **Python**: Build a neural network with PyTorch to classify MNIST digits
+- **TypeScript**: Build a Vite + React web application
 - **JavaScript**: Build a Node.js backend + vanilla JS frontend
+- **Go**: Build a CLI tool + concurrent HTTP dashboard
+- **Ruby**: Build a Rails web application
+- **Elixir**: Build a Phoenix web application with real-time features
+
+### Functional
+- **Haskell**: Build a web application with Servant, or a DSL with a parser/evaluator
+
+### Modern / Managed
+- **Swift**: Build a SwiftUI iOS app, or a server-side Swift app with Vapor
+- **C#**: Build an ASP.NET Core REST API, or a Unity game component, or a WPF desktop app
 
 ## Contributing
 
