@@ -1,9 +1,5 @@
-using System;
+// Hello World — C# Tooling Check
+// Compile: dotnet new console -n HelloProject -o . && dotnet run
+// Or: csc Hello.cs && mono Hello.exe
 
-class Hello
-{
-    static void Main()
-    {
-        Console.WriteLine("Hello, C#!");
-    }
-}
+Console.WriteLine("Hello, C#!");
