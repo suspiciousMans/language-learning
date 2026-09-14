@@ -1,55 +1,61 @@
-// Exercise 2: Delegates and Lambda Expressions
+// Exercise 2: Delegates
+// Delegates are type-safe function references — the foundation of events and lambdas
 
 using System;
 
-// Custom delegate type
-public delegate int MathOperation(int x, int y);
+// Declare a custom delegate type
+public delegate int MathOperation(int a, int b);
 
-class Program
+public class Program
 {
+    // Regular method matching delegate signature
+    static int Add(int a, int b) => a + b;
+    static int Multiply(int a, int b) => a * b;
+
+    // Lambda expressions — anonymous functions
     static void Main()
     {
-        Func<int, int, int> add = (a, b) => a + b;
-        Func<int, int, int> multiply = (a, b) => a * b;
+        // Delegate variable — points to a method
+        MathOperation op = Add;
+        Console.WriteLine($"Add(3, 5) = {op(3, 5)}");   // 8
 
-        Console.WriteLine($"3 + 4 = {add(3, 4)}");
-        Console.WriteLine($"3 * 4 = {multiply(3, 4)}");
+        // Reassign to another method
+        op = Multiply;
+        Console.WriteLine($"Multiply(3, 5) = {op(3, 5)}");  // 15
 
-        Func<string, string> toUpper = StringUtils.ToUpper;
-        Console.WriteLine($"toUpper(\"hello\") = {toUpper("hello")}");
+        // Lambda as delegate value
+        MathOperation subtract = (a, b) => a - b;
+        Console.WriteLine($"Subtract(10, 4) = {subtract(10, 4)}");  // 6
 
-        Action<string> print = Console.WriteLine;
-        print("Hello from Action!");
+        // Using built-in delegate types (no custom delegate needed)
+        Func<int, int, int> funcAdd = (a, b) => a + b;
+        Console.WriteLine($"Func: Add(7, 6) = {funcAdd(7, 6)}");
 
+        Action<string> greet = name => Console.WriteLine($"Hello, {name}!");
+        greet("World");
+
+        // Predicate<T> — returns bool (like Kotlin's (T) -> Boolean)
         Predicate<int> isEven = n => n % 2 == 0;
-        Console.WriteLine($"Is 4 even? {isEven(4)}");
-        Console.WriteLine($"Is 7 even? {isEven(7)}");
+        Console.WriteLine($"Is 7 even? {isEven(7)}");   // False
+        Console.WriteLine($"Is 8 even? {isEven(8)}");   // True
 
-        MathOperation subtract = (x, y) => x - y;
-        Console.WriteLine($"10 - 6 = {subtract(10, 6)}");
-
-        int Calculate(int x, int y, MathOperation op) => op(x, y);
-        Console.WriteLine($"Calculate(5, 3, add) = {Calculate(5, 3, add)}");
-        Console.WriteLine($"Calculate(5, 3, multiply) = {Calculate(5, 3, multiply)}");
-
-        Func<int, Func<int, int>> makeMultiplier = n =>
+        // Higher-order function — takes a delegate
+        int ApplyOperation(int a, int b, MathOperation operation)
         {
-            return x => x * n;
-        };
+            Console.WriteLine($"Applying operation: {a} ? {b}");
+            return operation(a, b);
+        }
 
-        var doubleFunc = makeMultiplier(2);
-        var tripleFunc = makeMultiplier(3);
-        Console.WriteLine($"Double 5: {doubleFunc(5)}");
-        Console.WriteLine($"Triple 5: {tripleFunc(5)}");
+        Console.WriteLine($"Apply Add: {ApplyOperation(3, 4, Add)}");        // 7
+        Console.WriteLine($"Apply Lambda: {ApplyOperation(3, 4, (a, b) => a * b + 1)}");  // 13
 
-        Action combined = Console.Write;
-        combined += s => Console.WriteLine();
-        combined += s => Console.WriteLine("---");
-        combined("Hello");
+        // Method group conversion — method name implicitly converts to delegate
+        Func<int> getRandom = new Random().Next;
+        Console.WriteLine($"Random: {getRandom()}");
+
+        // Delegates compose with LINQ
+        var numbers = new[] { 1, 2, 3, 4, 5, 6 };
+        var evens = numbers.Where(n => n % 2 == 0);
+        Console.WriteLine($"Evens: {string.Join(", ", evens)}");
     }
-}
-
-public static class StringUtils
-{
-    public static string ToUpper(string s) => s.ToUpper();
 }

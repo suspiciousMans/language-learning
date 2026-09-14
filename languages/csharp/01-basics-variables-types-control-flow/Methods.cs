@@ -5,7 +5,7 @@ using System;
 
 class Program
 {
-    // Expression-bodied method
+    // Expression-bodied method (C# 6+) — single expression, no braces
     static int Add(int a, int b) => a + b;
 
     // Method with optional parameter
@@ -14,7 +14,7 @@ class Program
         Console.WriteLine($"{greeting}, {name}!");
     }
 
-    // Method returning a tuple (C# 7+)
+    // Method returning a tuple (C# 7+) — like Kotlin's Pair
     static (int min, int max) MinMax(int[] numbers)
     {
         if (numbers == null || numbers.Length == 0)
@@ -30,7 +30,7 @@ class Program
         return (min, max);
     }
 
-    // Params array — variable arguments
+    // Method with params array (variable arguments)
     static double Average(params double[] values)
     {
         if (values.Length == 0) return 0;
@@ -54,7 +54,7 @@ class Program
         Greet("Bob", "Hi");
 
         int[] numbers = { 3, 7, 2, 9, 1 };
-        var (min, max) = MinMax(numbers);
+        var (min, max) = MinMax(numbers);   // deconstruction — like Kotlin destructuring
         Console.WriteLine($"Min: {min}, Max: {max}");
 
         Console.WriteLine($"Average of 1,2,3,4,5 = {Average(1, 2, 3, 4, 5)}");

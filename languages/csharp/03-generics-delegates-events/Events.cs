@@ -1,8 +1,10 @@
 // Exercise 3: Events
+// Events are a special kind of delegate — multicast, wrapped with event keyword
+// Publishers raise events; subscribers register handlers with +=
 
 using System;
-using System.Collections.Generic;
 
+// Custom event args — carry data with the event
 public class TemperatureEventArgs : EventArgs
 {
     public double Temperature { get; }
@@ -15,8 +17,11 @@ public class TemperatureEventArgs : EventArgs
     }
 }
 
+// 2. Publisher class — raises events
 public class Thermostat
 {
+    // Event declaration — wrapping a multicast delegate
+    // EventHandler<T> is the standard pattern
     public event EventHandler<TemperatureEventArgs>? TemperatureChanged;
 
     private double _currentTemperature;
@@ -29,16 +34,19 @@ public class Thermostat
             if (_currentTemperature != value)
             {
                 _currentTemperature = value;
+                // Raise the event — null-safe invocation
                 TemperatureChanged?.Invoke(this, new TemperatureEventArgs(value));
             }
         }
     }
 }
 
+// Another publisher — uses a custom delegate type
 public delegate void StockPriceChangedHandler(string symbol, double oldPrice, double newPrice);
 
 public class StockTracker
 {
+    // Custom delegate-based event
     public event StockPriceChangedHandler? PriceChanged;
 
     private Dictionary<string, double> _prices = new();
@@ -56,6 +64,7 @@ public class StockTracker
     }
 }
 
+// 3. Subscriber — subscribes to events with lambda or method
 public class TemperatureAlert
 {
     public TemperatureAlert(Thermostat thermostat, double threshold)
@@ -83,19 +92,49 @@ public class PriceDisplay
     }
 }
 
+// Subscriber that unsubscribes
+public class PriceLogger
+{
+    private readonly StreamWriter _log;
+
+    public PriceLogger()
+    {
+        _log = new StreamWriter("prices.log");
+    }
+
+    public void Subscribe(StockTracker tracker)
+    {
+        tracker.PriceChanged += OnPriceChanged;
+    }
+
+    public void Unsubscribe(StockTracker tracker)
+    {
+        tracker.PriceChanged -= OnPriceChanged;
+    }
+
+    private void OnPriceChanged(string symbol, double oldPrice, double newPrice)
+    {
+        _log.WriteLine($"{DateTime.Now}: {symbol} {oldPrice:F2} -> {newPrice:F2}");
+    }
+
+    public void Close() => _log.Close();
+}
+
 class Program
 {
     static void Main()
     {
+        // Thermostat example
         Console.WriteLine("=== Thermostat Events ===");
         var thermostat = new Thermostat();
         var alert = new TemperatureAlert(thermostat, 30.0);
 
-        thermostat.CurrentTemperature = 25.0;
-        thermostat.CurrentTemperature = 32.0;
-        thermostat.CurrentTemperature = 28.0;
-        thermostat.CurrentTemperature = 35.5;
+        thermostat.CurrentTemperature = 25.0;   // No alert
+        thermostat.CurrentTemperature = 32.0;   // Alert!
+        thermostat.CurrentTemperature = 28.0;   // No alert
+        thermostat.CurrentTemperature = 35.5;   // Alert!
 
+        // Stock tracker example
         Console.WriteLine("\n=== Stock Events ===");
         var tracker = new StockTracker();
         var display = new PriceDisplay();

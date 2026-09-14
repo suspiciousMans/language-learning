@@ -1,4 +1,6 @@
-using System;
+// Exercise 1: Variables and Types
+// C# types: int, double, string, bool, char, decimal, DateTime, etc.
+// var is inferred but always mutable — use explicit types when clarity matters
 
 class Program
 {

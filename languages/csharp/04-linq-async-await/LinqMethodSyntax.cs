@@ -1,5 +1,30 @@
-// Exercise 1: LINQ Method Syntax
-// LINQ operators as extension methods on IEnumerable<T>
+// LinqMethodSyntax.cs — Project 04, Exercise 1
+// Topics: LINQ method syntax, filtering (Where), projection (Select),
+//         sorting (OrderBy), aggregation (Count, Average, Min, Max),
+//         grouping (GroupBy), deferred execution.
+//
+// Expected output:
+//   Engineers:
+//     Alice (age 30)
+//     Charlie (age 35)
+//     Eve (age 32)
+//
+//   All names: [Alice, Bob, Charlie, Diana, Eve, Frank]
+//
+//   Engineers by age: [Alice (30), Eve (32), Charlie (35)]
+//
+//   Total people: 6
+//   Average age: 28.7
+//   Youngest: 22
+//   Oldest: 40
+//
+//   By department:
+//     Engineering: 3 people
+//     Marketing: 2 people
+//     Sales: 1 people
+//
+//   === Deferred Execution ===
+//   Count after adding Grace: 4
 
 using System;
 using System.Collections.Generic;
@@ -38,7 +63,7 @@ class Program
 
         // Aggregation: count, sum, average, min, max
         Console.WriteLine($"\nTotal people: {people.Count()}");
-        Console.WriteLine($"Average age: {people.Average(p => p.Age):F1}");
+        Console.WriteLine($"\nAverage age: {people.Average(p => p.Age):F1}");
         Console.WriteLine($"Youngest: {people.Min(p => p.Age)}");
         Console.WriteLine($"Oldest: {people.Max(p => p.Age)}");
 
@@ -52,9 +77,9 @@ class Program
 
         // Deferred execution demo
         Console.WriteLine("\n=== Deferred Execution ===");
-        var query = people.Where(p => p.Age > 25);
-        people.Add(new Person("Grace", 40, "HR"));
-        Console.WriteLine($"Count after adding Grace: {query.Count()}");
+        var query = people.Where(p => p.Age > 25);  // nothing executed yet
+        people.Add(new Person("Grace", 40, "HR"));   // modify the source
+        Console.WriteLine($"Count after adding Grace: {query.Count()}");  // 4, not 3
     }
 }
 

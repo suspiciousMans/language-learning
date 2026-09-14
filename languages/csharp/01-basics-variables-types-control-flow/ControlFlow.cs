@@ -7,7 +7,7 @@ class Program
     {
         int score = 87;
 
-        // if-else
+        // if-else (statement — no expression form in C#, no direct value return)
         string grade;
         if (score >= 90)
             grade = "A";
@@ -20,7 +20,7 @@ class Program
 
         Console.WriteLine($"Score: {score} → Grade: {grade}");
 
-        // Switch expression (C# 8+) — returns a value
+        // Switch expression (C# 8+) — returns a value, like Kotlin's when
         int day = 3;
         string dayName = day switch
         {
@@ -34,7 +34,7 @@ class Program
         };
         Console.WriteLine($"Day {day} is {dayName}");
 
-        // For loop
+        // For loop with traditional syntax
         Console.Write("Counting 1 to 5: ");
         for (int i = 1; i <= 5; i++)
         {
@@ -42,7 +42,7 @@ class Program
         }
         Console.WriteLine();
 
-        // Foreach loop
+        // Foreach loop (idiomatic in C# for collections)
         string[] fruits = { "apple", "banana", "cherry" };
         Console.Write("Fruits: ");
         foreach (var fruit in fruits)
@@ -60,7 +60,7 @@ class Program
         }
         Console.WriteLine("Go!");
 
-        // Pattern matching in switch
+        // Pattern matching in switch (C# 8+)
         object[] items = { 42, "hello", 3.14, null };
         foreach (var item in items)
         {

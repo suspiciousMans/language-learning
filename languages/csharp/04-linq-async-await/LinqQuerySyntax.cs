@@ -1,5 +1,35 @@
-// Exercise 2: LINQ Query Syntax
-// SQL-like query syntax — compiles to the same method calls as method syntax
+// LinqQuerySyntax.cs — Project 04, Exercise 2
+// Topics: LINQ query syntax (from, where, select, orderby, join, group by into, let),
+//         anonymous types, SQL-like query comprehension.
+//
+// Expected output:
+//   Products under $50:
+//     Mouse: $29.99
+//     Notebook: $4.99
+//     Pen Set: $12.99
+//
+//   Affordable electronics (under $500), price descending:
+//     Monitor: $399.99
+//     Mouse: $29.99
+//
+//   Products with suppliers:
+//     Laptop → TechCorp
+//     Mouse → TechCorp
+//     Monitor → TechCorp
+//     Notebook → OfficeSupplies Inc
+//     Pen Set → OfficeSupplies Inc
+//     Desk Chair → FurnitureWorld
+//     Bookshelf → FurnitureWorld
+//
+//   Categories with 2+ products:
+//     Electronics: 3 products, total value $128490.75
+//     Stationery: 2 products, total value $18247.00
+//     Furniture: 2 products, total value $11599.40
+//
+//   Products under $100 after 10% discount:
+//     Mouse: $29.99 → $26.99
+//     Notebook: $4.99 → $4.49
+//     Pen Set: $12.99 → $11.69
 
 using System;
 using System.Collections.Generic;

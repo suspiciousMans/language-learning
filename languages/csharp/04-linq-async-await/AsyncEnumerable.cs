@@ -1,12 +1,45 @@
-// Exercise 4: IAsyncEnumerable and Async LINQ
-// Async streaming with IAsyncEnumerable<T> — C# 8+
+// AsyncEnumerable.cs — Project 04, Exercise 4
+// Topics: IAsyncEnumerable<T>, async iterators with yield return,
+//         await foreach, async filtering, async streaming,
+//         simulating paginated API responses.
+//
+// Expected output:
+//
+//   === Async Enumerable ===
+//     Received: 1
+//     Received: 2
+//     Received: 3
+//     Received: 4
+//     Received: 5
+//
+//   === Async Filtering ===
+//     Even number: 2
+//     Even number: 4
+//     Even number: 6
+//     Even number: 8
+//     Even number: 10
+//
+//   === Async LINQ with ToList (materialize) ===
+//     Collected: [1, 2, 3, 4, 5, 6, 7]
+//
+//   === Real-world: simulate paginated API ===
+//     Page 1: 5 items
+//     Page 2: 5 items
+//     Page 3: 5 items
+//
+// NOTE: The "Async LINQ with ToList" section uses a manual ToListAsync
+// implementation because System.Linq.Async is not included. The README
+// spec shows `numbers.ToListAsync()` which would require the package.
+// The implementation below uses a simple await foreach to collect.
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 class Program
 {
+    // Async generator — yields values over time
     static async IAsyncEnumerable<int> GenerateNumbersAsync(int count, int delayMs)
     {
         for (int i = 1; i <= count; i++)
@@ -16,6 +49,7 @@ class Program
         }
     }
 
+    // Async LINQ-style filtering
     static async IAsyncEnumerable<int> FilterAsync(IAsyncEnumerable<int> source, Func<int, bool> predicate)
     {
         await foreach (var item in source)
@@ -38,9 +72,23 @@ class Program
         await foreach (var n in evens)
             Console.WriteLine($"  Even number: {n}");
 
+        Console.WriteLine("\n=== Async LINQ with ToList (materialize) ===");
+        var numbers = GenerateNumbersAsync(7, 200);
+        var collected = await ToListAsync(numbers);
+        Console.WriteLine($"  Collected: [{string.Join(", ", collected)}]");
+
         Console.WriteLine("\n=== Real-world: simulate paginated API ===");
         await foreach (var page in PaginateAsync(3, 1000))
             Console.WriteLine($"  Page {page.PageNumber}: {page.Items.Count} items");
+    }
+
+    // Manual ToListAsync to avoid external package dependency
+    static async Task<List<int>> ToListAsync(IAsyncEnumerable<int> source)
+    {
+        var list = new List<int>();
+        await foreach (var item in source)
+            list.Add(item);
+        return list;
     }
 }
 
